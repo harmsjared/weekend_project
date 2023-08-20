@@ -36,10 +36,20 @@ def select_guest(choice):
                 "firstName": guest['firstName'],
                 "lastName": guest['lastName'],
                 "roomNumber": guest['reservation']['roomNumber'],
-                "checkInTime": time_assessment(room_number, "hour_proximate_checkin"),
-                "checkOutTime": datetime.datetime.fromtimestamp(guest['reservation']['endTimestamp']).strftime(
-                    "%I:%M %p"),
-
+                "checkin": {
+                    "day": time_assessment(room_number, "checkin_day"),
+                    "month": time_assessment(room_number, "checkin_month"),
+                    "year": time_assessment(room_number, "checkin_year"),
+                    "checkinDayOfWeek": time_assessment(room_number, "checkin_day_of_week"),
+                    "checkinTime": time_assessment(room_number, "hour_proximate_checkin"),
+                },
+                "checkout": {
+                    "day": time_assessment(room_number, "checkout_day"),
+                    "month": time_assessment(room_number, "checkout_month"),
+                    "year": time_assessment(room_number, "checkout_year"),
+                    "checkoutDayOfWeek": time_assessment(room_number, "checkout_day_of_week"),
+                    "checkoutTime": time_assessment(room_number, "hour_proximate_checkout"),
+                }
             }
 
             return guest_info
@@ -52,16 +62,26 @@ def time_assessment(room_reservation, format):
             unix_checkin_time = guest['reservation']['startTimestamp']
             unix_checkout_time = guest['reservation']['endTimestamp']
 
+
+
+            #Check-In Information
             checkin_time = datetime.datetime.fromtimestamp(unix_checkin_time).time()
-            checkout_time = datetime.datetime.fromtimestamp(unix_checkout_time).time()
             checkin_hour = datetime.datetime.fromtimestamp(unix_checkin_time).strftime("%I:00 %p")
-            checkout_hour = datetime.datetime.fromtimestamp(unix_checkout_time).strftime("%I:00 %p")
             checkin_day_of_week = datetime.datetime.fromtimestamp(unix_checkin_time).strftime("%A")
-            checkout_day_of_week = datetime.datetime.fromtimestamp(unix_checkout_time).strftime("%A")
-            checkin_year = datetime.datetime.fromtimestamp(unix_checkin_time).year
+            checkin_day = datetime.datetime.fromtimestamp(unix_checkin_time).day
             checkin_month = datetime.datetime.fromtimestamp(unix_checkin_time).month
-            checkout_year = datetime.datetime.fromtimestamp(unix_checkout_time).year
+            checkin_year = datetime.datetime.fromtimestamp(unix_checkin_time).year
+
+            #Check-Out Information
+            checkout_time = datetime.datetime.fromtimestamp(unix_checkout_time).time()
+            checkout_hour = datetime.datetime.fromtimestamp(unix_checkout_time).strftime("%I:00 %p")
+            checkout_day_of_week = datetime.datetime.fromtimestamp(unix_checkout_time).strftime("%A")
+            checkout_day = datetime.datetime.fromtimestamp(unix_checkout_time).day
             checkout_month = datetime.datetime.fromtimestamp(unix_checkout_time).month
+            checkout_year = datetime.datetime.fromtimestamp(unix_checkout_time).year
+
+
+
 
             morning_start = datetime.time(6, 0, 0)
             afternoon_start = datetime.time(12, 0, 0)
@@ -85,6 +105,7 @@ def time_assessment(room_reservation, format):
             else:
                 checkout_time_salutation = "evening"
 
+
             if format == "checkin_time_salutation":
                 return checkin_time_salutation
             elif format == "checkout_time_salutation":
@@ -105,5 +126,9 @@ def time_assessment(room_reservation, format):
                 return checkin_month
             elif format == "checkout_month":
                 return checkout_month
+            elif format == "checkin_day":
+                return checkin_day
+            elif format == "checkout_day":
+                return checkout_day
             else:
                 return "Hi! :)"
