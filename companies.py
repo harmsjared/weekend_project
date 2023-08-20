@@ -1,7 +1,15 @@
 import json
 
-with open('companies.json', 'r') as json_file:
-    companies = json.load(json_file)
+
+# with open('companies.json', 'r') as json_file:
+#     companies = json.load(json_file)
+
+
+def get_companies():
+    with open('companies.json', 'r') as json_file:
+        companies = json.load(json_file)
+    for company in companies:
+        print(f"{company['id']}: {company['company']} in {company['city']}.")
 
 
 class Companies:
@@ -31,40 +39,3 @@ class Companies:
 
         return company_info_list
 
-
-def get_companies(self):
-    for company in companies:
-        print("Company Name:", company['company_name'])
-        print("-" * 20)
-
-    # def get_companies():
-    #     for company in companies:
-    #         company_id = company['id']
-    #         company_name = company['company']
-    #         city = company['city']
-    #         zone = company['timezone']
-    #         print(f"{company_id}: {company_name}, located in {city}, {zone} time.")
-
-
-#
-#
-# def validate_company():
-#     selected_company = int(input())
-#     for company in companies:
-#         company_id = company['id']
-#         if selected_company == company_id:
-#             company_info = {
-#                 "id": company['id'],
-#                 "company": company['company'],
-#                 "city": company['city'],
-#                 "timezone": company['timezone']
-#             }
-#             return company_info
-# def get_companies():
-#     return None
-
-number = int(input())
-
-variable = Companies.get_company_details(number)
-
-print(variable.get('company_id'))
