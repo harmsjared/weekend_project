@@ -2,10 +2,9 @@ import json
 import datetime
 import users
 import guests
-import companies
 import messages
 import companies
-from companies import Companies
+
 
 
 class Telegraph:
@@ -62,17 +61,14 @@ class Telegraph:
         checkout_year = specific_guest.get("checkout").get("year")
         checkout_hour = specific_guest.get("checkout").get("checkoutTime")
 
-        # print(f"\nYou selected {first_name} {last_name}, staying in room: {room_number}.\n")
-        print(first_name, last_name, room_number, checkin_day, checkin_hour, checkin_year, checkin_hour)
-        print(checkout_day, checkout_hour, checkout_year, checkout_month)
+        # print(first_name, last_name, room_number, checkin_day, checkin_hour, checkin_year, checkin_hour)
+        # print(checkout_day, checkout_hour, checkout_year, checkout_month)
 
-        # print(f"Where is {first_name} staying?")
-        #
-        # # json_file_path = "companies.json"
-        # # companies = Companies(json_file_path)
-        # # (companies.get_companies())
-        #
-        # choice = int(input("\nPlease select the corresponding company number:\n"))
+        print(f"\nWhere is {first_name} staying?")
+
+        companies.get_companies()
+
+        choice = int(input("\nPlease select the corresponding company number:\n"))
 
         # company_info_list = companies.get_company_details()
         #
