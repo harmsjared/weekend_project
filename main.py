@@ -22,12 +22,13 @@ class Telegraph:
     selected_action = int(input())
 
     if selected_action == 1:
-
+        # Show list of guests
         guests.show_guests()
 
     elif selected_action == 2:
 
-        specific_guest = guests.validate_guest_room()
+        # Select guest
+        specific_guest = guests.select_guest()
 
         first_name = specific_guest['firstName']
         last_name = specific_guest['lastName']

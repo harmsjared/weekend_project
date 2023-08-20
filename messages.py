@@ -10,7 +10,7 @@ with open("messages.json") as message_data:
 def show_messages():
     i = 1
     for message in messages:
-        print(f"{message['id']}: {message['memo']}")
+        print(f"{message['id']}: {message['message']}")
         i += 1
 
 

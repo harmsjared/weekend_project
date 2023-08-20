@@ -28,7 +28,7 @@ def show_guests():
     print(" ")
 
 
-def validate_guest_room():
+def select_guest():
     print("\nWhich guest would you like to contact?")
     show_guests()
     choice = int(input("Please enter the corresponding room number:\n> "))
