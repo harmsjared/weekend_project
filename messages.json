@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "message": "Good {time_salutation} {first_name}, your room at {company_name} will be ready at {checkin_hour}!",
+        "memo": "Room ready alert"
+    },
+    {
+        "id": 2,
+        "message": "Good {time_salutation} {first_name}, we just wanted to remind you that you checkout time is {checkout_hour}, on {day, month date, year}.",
+        "memo": "Check out alert"
+    }
+]
