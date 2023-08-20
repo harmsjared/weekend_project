@@ -10,8 +10,7 @@ def get_room_number(guests):
     return guests['reservation']['roomNumber']
 
 
-# I could have sorted this dict however, but seeing room_number(s)
-# in order made the most sense to me
+# sort dict by room number
 guests = sorted(guests, key=get_room_number)
 
 
@@ -22,8 +21,6 @@ def show_guests():
         room_number = guest['reservation']['roomNumber']
         first_name = guest['firstName']
         last_name = guest['lastName']
-        check_in_time = datetime.datetime.fromtimestamp(guest['reservation']['startTimestamp']).strftime("%I:%M %p")
-        check_out_time = datetime.datetime.fromtimestamp(guest['reservation']['endTimestamp']).strftime("%I:%M %p")
         print(f"{room_number}: {first_name} {last_name}")
     print(" ")
 
