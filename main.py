@@ -2,13 +2,15 @@ import json
 import datetime
 import users
 import guests
+import companies
 import messages
 import companies
+from companies import Companies
 
 
 class Telegraph:
     # Greet user
-    print(f"\nWelcome to Telegraph, {users.get_user()}.")
+    print(f"\nWelcome to Telegraph, {users.get_user().title()}.")
 
     current_day, current_month, current_year, current_date = users.get_current_date()
     # day, month, year = users.get_current_date()
@@ -45,46 +47,36 @@ class Telegraph:
 
         # specify guest details
         first_name = specific_guest.get("firstName")
-        print("First Name: ", first_name)
         last_name = specific_guest.get("lastName")
-        print("Last Name: ", last_name)
         room_number = specific_guest.get("roomNumber")
-        print("Room Number: ", room_number)
 
         # Check-In
         checkin_day = specific_guest.get("checkin").get("day")
-        print("Checkin Day: ", checkin_day)
         checkin_month = specific_guest.get("checkin").get("month")
-        print("Checkin Month: ", checkin_month)
         checkin_year = specific_guest.get("checkin").get("year")
-        print("Checkin Year: ", checkin_year)
         checkin_hour = specific_guest.get("checkin").get("checkinTime")
-        print("Checkin Hour: ", checkin_hour)
 
         # Check-Out
         checkout_day = specific_guest.get("checkout").get("day")
-        print("Checkout Day: ", checkout_day)
         checkout_month = specific_guest.get("checkout").get("month")
-        print("Checkout Month: ", checkout_month)
         checkout_year = specific_guest.get("checkout").get("year")
-        print("Checkout Year: ", checkout_year)
         checkout_hour = specific_guest.get("checkout").get("checkoutTime")
-        print("Checkout Hour: ", checkout_hour)
 
         # print(f"\nYou selected {first_name} {last_name}, staying in room: {room_number}.\n")
-        #
+        print(first_name, last_name, room_number, checkin_day, checkin_hour, checkin_year, checkin_hour)
+        print(checkout_day, checkout_hour, checkout_year, checkout_month)
+
         # print(f"Where is {first_name} staying?")
         #
-        # companies.show_locations()
+        # # json_file_path = "companies.json"
+        # # companies = Companies(json_file_path)
+        # # (companies.get_companies())
         #
-        # selected_company = companies.validate_company()
+        # choice = int(input("\nPlease select the corresponding company number:\n"))
+
+        # company_info_list = companies.get_company_details()
         #
-        # company_id = selected_company['id']
-        # company_name = selected_company['company']
-        # company_city = selected_company['city']
-        # company_zone = selected_company['timezone']
-        #
-        # # print(company_name)
+        # print(company_info_list)
         #
         # print(f"You selected {company_name}, located in {company_city}.\n")
         #
