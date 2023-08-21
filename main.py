@@ -175,6 +175,6 @@ class Telegraph:
             break
 
         if selected_action == 3:
-            print("Loggin off.")
+            print("Logging off.")
             break
 
