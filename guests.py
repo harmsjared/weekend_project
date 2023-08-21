@@ -23,64 +23,92 @@ def show_guests():
 
 
 def select_guest(choice):
+    found_guest = False
+
     for guest in guests:
         room_number = guest['reservation']['roomNumber']
         if choice == room_number:
-            unix_checkin_time = guest['reservation']['startTimestamp']
-            unix_checkout_time = guest['reservation']['endTimestamp']
+            found_guest = True
+            unix_checkin_time, unix_checkout_time = guest['reservation']['startTimestamp'], guest['reservation'][
+                'endTimestamp']
 
             guest_info = {
-                "firstName": guest['firstName'],
-                "lastName": guest['lastName'],
-                "roomNumber": guest['reservation']['roomNumber'],
+                "first_name": guest['firstName'],
+                "last_name": guest['lastName'],
+                "room_number": guest['reservation']['roomNumber'],
                 "checkin": {
                     "day": time_assessment(unix_checkin_time, "day"),
+                    "day_name": time_assessment(unix_checkin_time, "day_name"),
                     "month": time_assessment(unix_checkin_time, "month"),
+                    "month_name": time_assessment(unix_checkin_time, "month_name"),
                     "year": time_assessment(unix_checkin_time, "year"),
-                    "checkinDayOfWeek": time_assessment(unix_checkin_time, "day_of_week"),
-                    "checkinTime": time_assessment(unix_checkin_time, "hour"),
+                    "time": time_assessment(unix_checkin_time, "hour"),
                 },
                 "checkout": {
                     "day": time_assessment(unix_checkout_time, "day"),
+                    "day_name": time_assessment(unix_checkout_time, "day_name"),
                     "month": time_assessment(unix_checkout_time, "month"),
+                    "month_name": time_assessment(unix_checkout_time, "month_name"),
                     "year": time_assessment(unix_checkout_time, "year"),
-                    "checkoutDayOfWeek": time_assessment(unix_checkout_time, "day_of_week"),
-                    "checkoutTime": time_assessment(unix_checkout_time, "hour"),
+                    "time": time_assessment(unix_checkout_time, "hour"),
                 }
             }
             return guest_info
 
 
 def time_assessment(unix_timestamp, format):
-
-    valid_formats = ["hour", "day_of_week", "day", "month", "year"]
+    valid_formats = ["hour", "day", "day_name", "month", "month_name", "year"]
 
     if unix_timestamp is None or format is None:
         raise ValueError("Missing required argument(s)")
 
     try:
+
         time = datetime.datetime.fromtimestamp(unix_timestamp)
+
     except ValueError:
+
         raise ValueError("Invalid Unix timestamp")
 
     if format not in valid_formats:
         raise ValueError("Invalid format")
 
     hour = time.strftime("%I:00 %p")
+
     day_of_week = time.strftime("%A")
+
     day = time.day
+
     month = time.month
+
+    month_name = time.strftime("%B")
+
     year = time.year
 
     if format == "hour":
+
         return hour
-    elif format == "day_of_week":
-        return day_of_week
+
     elif format == "day":
+
         return day
+
+    elif format == "day_name":
+
+        return day_of_week
+
     elif format == "month":
+
         return month
+
+    elif format == "month_name":
+
+        return month_name
+
     elif format == "year":
+
         return year
+
     else:
+
         return None

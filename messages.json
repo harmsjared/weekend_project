@@ -1,12 +1,22 @@
 [
     {
         "id": 1,
-        "message": "Good {time_salutation} {first_name}, your room at {company_name} will be ready at {checkin_hour}, on {checkin_day_name}, {checkin_month} {checkin_day}, {checkout_year}.",
-        "memo": "Room ready alert"
+        "message": "Good {time_salutation} {first_name}, your room at {company_name} will be ready at {checkin_hour}, on {checkin_day_name}, {checkin_month_name} {checkin_day}, {checkout_year}.",
+        "memo": "Check-in alert"
     },
     {
         "id": 2,
-        "message": "Good {time_salutation} {first_name}, we just wanted to remind you that you checkout time is {checkout_hour}, on {day, month date, year}.",
-        "memo": "Check out alert"
+        "message": "Good {time_salutation} {first_name}, this is a reminder that your checkout time is {checkout_hour}, on {checkout_day_name}, {checkout_month_name} {checkout_day}, {checkout_year}.",
+        "memo": "Check-out alert"
+    },
+    {
+        "id": 3,
+        "message": "Good {time_salutation} {first_name}, we have really appreciated your stay with us at {company_name} and hope to see you again soon!",
+        "memo": "Thanks for staying"
+    },
+    {
+        "id": 4,
+        "message": "Good {time_salutation} {first_name}, thank you confirming your stay with us at {company_name}, for {checkin_day_name}, {checkin_month_name} {checkin_day}, {checkout_year}. {company_city} is fabulous this time of year!",
+        "memo": "Thanks for staying"
     }
 ]
