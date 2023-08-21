@@ -42,25 +42,25 @@ class Telegraph:
         specific_guest = guests.select_guest(choice)
 
         # specify guest details
-        first_name = specific_guest.get("firstName")
-        last_name = specific_guest.get("lastName")
-        room_number = specific_guest.get("roomNumber")
+        first_name = specific_guest.get("first_name")
+        last_name = specific_guest.get("last_name")
+        room_number = specific_guest.get("room_number")
 
         # Check-In
         checkin_day = specific_guest.get("checkin").get("day")
-        checkin_day_name = specific_guest.get("checkin").get("checkinDayOfWeek")
+        checkin_day_name = specific_guest.get("checkin").get("day_name")
         checkin_month = specific_guest.get("checkin").get("month")
-        # add checkin_month_name
+        checkin_month_name = specific_guest.get("checkin").get("month_name")
         checkin_year = specific_guest.get("checkin").get("year")
-        checkin_hour = specific_guest.get("checkin").get("checkinTime")
+        checkin_hour = specific_guest.get("checkin").get("time")
 
         # Check-Out
         checkout_day = specific_guest.get("checkout").get("day")
-        checkout_day_name = specific_guest.get("checkout").get("checkoutDayOfWeek")
+        checkout_day_name = specific_guest.get("checkout").get("day_name")
         checkout_month = specific_guest.get("checkout").get("month")
-        # add checkout_day_name
+        checkout_month_name = specific_guest.get("checkout").get("month_name")
         checkout_year = specific_guest.get("checkout").get("year")
-        checkout_hour = specific_guest.get("checkout").get("checkoutTime")
+        checkout_hour = specific_guest.get("checkout").get("time")
 
         print(f"\nWhere is {first_name} staying?")
 
@@ -92,12 +92,14 @@ class Telegraph:
 
             template = new_message.get('message')
             formatted_message = template.format(first_name=first_name, last_name=last_name,
-                                                time_salutation=time_salutation,
-                                                company_name=company_name, checkin_hour=checkin_hour,
+                                                time_salutation=time_salutation, checkin_month_name=checkin_month_name,
+                                                company_name=company_name, company_city=company_city,
+                                                checkin_hour=checkin_hour,
                                                 checkin_day=checkin_day, checkin_day_name=checkin_day_name,
                                                 checkin_month=checkin_month, checkin_year=checkin_year,
-                                                checkout_day=checkout_day, checkout_day_name=checkout_day_name,
-                                                checkout_year=checkout_year)
+                                                checkout_hour=checkout_hour, checkout_day=checkout_day,
+                                                checkout_day_name=checkout_day_name, checkout_month=checkout_month,
+                                                checkout_year=checkout_year, checkout_month_name=checkout_month_name)
             print(formatted_message)
 
 
