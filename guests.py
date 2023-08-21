@@ -18,10 +18,7 @@ guests = sorted(guests, key=get_room_number)
 def show_guests():
     print('\nGuests:')
     for guest in guests:
-        room_number = guest['reservation']['roomNumber']
-        first_name = guest['firstName']
-        last_name = guest['lastName']
-        print(f"{room_number}: {first_name} {last_name}")
+        print(f"{guest['reservation']['roomNumber']}: {guest['firstName']} {guest['lastName']}")
     print(" ")
 
 
