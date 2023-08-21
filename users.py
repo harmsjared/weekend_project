@@ -29,10 +29,10 @@ def get_current_time():
     current_minute = now.minute
 
     if now_hour < 12:
-        time_salutation = "morning",
+        time_salutation = "morning"
         am_pm = "AM"
     elif now_hour < 18:
-        time_salutation = "afternoon",
+        time_salutation = "afternoon"
         am_pm = "PM"
     else:
         time_salutation = "evening"

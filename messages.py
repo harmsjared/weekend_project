@@ -21,8 +21,7 @@ def validate_message(specific_message):
             return message
 
 
-def get_message(specific_guest, company_info):
-    hour, minute, time_salutation, am_pm = users.get_current_time()
+def get_message(specific_guest, company_info, time_salutation):
     print("\nOkay, which message would you like to send?")
 
     # prints existing messages

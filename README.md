@@ -15,10 +15,10 @@ aspects, like managing messages and handling guest functionalities.
 To ensure reasonable time efficiency, we completely removed nested "for loops." None of the functions in 
 the program exceed O^n linear efficiency (contain nested functions), allowing for more optimal scalability.
 
-Lastly, the most easy to grasp variables names were used, both for reading purposes and to allow fluid creation 
+Lastly, the most easy to grasp variables names were used, both for reading purposes and to allow for fluid creation 
 of new variables.
 
-## III. Language Choice
+## III. Language_Choice
 I opted to use Python as my programming language in this project because I had not used Python for OOP, prior to. 
 I thought it would be a great learning experience, and it proved to be quite the challenge, as my prior OOP experience 
 had mostly been through JS, TS, and Java. 
@@ -28,7 +28,7 @@ To address issues in the program and handle unusual situations, I took simple pr
 of data types and variables before moving forward with functions. On a practical level, I ran the program repeatedly
 using numerous variables, ensuring its stability even when faced with unusual situations. 
 
-## IV. Future Plans 
+## IV. Future_Plans 
 There are several ways to make this program better. Firstly, I could make better use of classes to fully embrace 
 Object-Oriented Programming (OOP) principles. For instance, I could create a "guest" class that becomes an object 
 instantiated within the main program. 
