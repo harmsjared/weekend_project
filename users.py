@@ -1,12 +1,13 @@
-import time
 from datetime import datetime
 
 
+# Gets user as string name
 def get_user():
     user = input("What is your name?\n")
     return user
 
 
+# Gets current date as day, month, year, numeric date
 def get_current_date():
     now = datetime.now()
     # Get current day of the week in English
@@ -21,6 +22,7 @@ def get_current_date():
     return current_day, current_month, current_year, current_date
 
 
+# Gets current time as hour, minute, am or pm, and a salutation form
 def get_current_time():
     now = datetime.now().time()
     now_hour = now.hour
