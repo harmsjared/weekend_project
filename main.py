@@ -92,7 +92,7 @@ class Telegraph:
     # Greet user, accept name as input
     print(f"\nWelcome to Telegraph, {users.get_user().title()}.")
 
-    # Get date data,
+    # Get date data
     current_day, current_month, current_year, current_date = users.get_current_date()
     print(f"Today is {current_day}, {current_month} {current_date}, {current_year}.")
 
@@ -105,7 +105,8 @@ class Telegraph:
         print("---------")
         print("What can I help you with today?")
 
-    def show_commands():  # Show command options
+    # Show command options
+    def show_commands():
         print("\nCommands:\n"
               "1. Show Guests\n"
               "2. Contact Guest\n"
