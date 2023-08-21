@@ -79,6 +79,8 @@ class Telegraph:
                                  "1: Pre-Existing Message\n"
                                  "2: Custom Message\n"))
 
+        messages.get_message(message_type, specific_guest)
+
         if message_type == 1:
             print("\nOkay, which message would you like to send?")
 
@@ -91,16 +93,16 @@ class Telegraph:
             new_message = messages.validate_message(existing_message)
 
             template = new_message.get('message')
-            formatted_message = template.format(first_name=first_name, last_name=last_name,
-                                                time_salutation=time_salutation, checkin_month_name=checkin_month_name,
-                                                company_name=company_name, company_city=company_city,
-                                                checkin_hour=checkin_hour,
-                                                checkin_day=checkin_day, checkin_day_name=checkin_day_name,
-                                                checkin_month=checkin_month, checkin_year=checkin_year,
-                                                checkout_hour=checkout_hour, checkout_day=checkout_day,
-                                                checkout_day_name=checkout_day_name, checkout_month=checkout_month,
-                                                checkout_year=checkout_year, checkout_month_name=checkout_month_name)
-            print(formatted_message)
+            # formatted_message = template.format(first_name=specific_guest.get(first_name), last_name=last_name,
+            #                                     time_salutation=time_salutation, checkin_month_name=checkin_month_name,
+            #                                     company_name=company_name, company_city=company_city,
+            #                                     checkin_hour=checkin_hour,
+            #                                     checkin_day=checkin_day, checkin_day_name=checkin_day_name,
+            #                                     checkin_month=checkin_month, checkin_year=checkin_year,
+            #                                     checkout_hour=checkout_hour, checkout_day=checkout_day,
+            #                                     checkout_day_name=checkout_day_name, checkout_month=checkout_month,
+            #                                     checkout_year=checkout_year, checkout_month_name=checkout_month_name)
+            # print(formatted_message)
 
 
         elif message_type == 2:
